@@ -1,0 +1,39 @@
+{% extends 'productapp/index.html' %}
+
+{% block title %}
+    <title>Update Page</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Update Product Details Here</h2>
+        <form action="/productapp/update/{{obj.product_id}}/" method="post"> {% csrf_token %}
+
+            <!-- Product ID -->
+            <div class="form-group">
+                <label for="product_id">Product ID:</label>
+                <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Enter Product Id" value={{obj.product_id}} readonly>
+            </div>
+
+            <!-- Product Name -->
+            <div class="form-group">
+                <label for="product_name">Product Name:</label>
+                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter Product Name" value={{obj.product_name}} >
+            </div>
+
+            <!-- Product Price -->
+            <div class="form-group">
+                <label for="product_price">Product Price:</label>
+                <input type="number" class="form-control" id="product_price" name="product_price"  placeholder="Enter Product Price" value={{obj.product_price}} >
+            </div>
+
+            <!-- Product Quantity -->
+            <div class="form-group">
+                <label for="product_quantity">Product Quantity:</label>
+                <input type="number" class="form-control" id="product_quantity" name="product_quantity"  placeholder="Enter Product Quantity" value={{obj.product_quantity}}>
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-block">Update</button>
+        </form>
+    </div>
+{% endblock content %}

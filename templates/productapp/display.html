@@ -1,0 +1,40 @@
+{% extends 'productapp/index.html' %}
+
+{% block title %}
+    <title>Display Products</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Product Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Quantity</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in data %}
+                    <tr>
+                        <th scope="row">{{ obj.product_id }}</th>
+                        <td>{{ obj.product_name }}</td>
+                        <td>{{ obj.product_price }}</td>
+                        <td>{{ obj.product_quantity }}</td>
+                        <td>
+                            <a href="/productapp/update/{{obj.product_id}}" class="btn btn-warning"> Update </a> &nbsp; &nbsp; 
+                            <a href="/productapp/delete/{{obj.product_id}}/" class="btn btn-danger"> Delete </a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">No products found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

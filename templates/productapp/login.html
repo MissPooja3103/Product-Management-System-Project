@@ -1,0 +1,41 @@
+{% extends 'productapp/index.html' %}
+
+{% block title %}
+<title>Login Page</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="text-center">Log In</h3>
+    <form action="{% url 'login' %}" method="POST" class="form-group">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="uname" class="form-label">UserName:</label>
+            <input
+                type="text"
+                id="uname"
+                name="uname"
+                class="form-control"
+                placeholder="Enter UserName"
+                required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input
+                type="password"
+                id="password"
+                name="pwd"
+                class="form-control"
+                placeholder="Enter Password"
+                required
+            />
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+    {% if error %}
+    <p class="text-danger mt-3">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock content %}
+
