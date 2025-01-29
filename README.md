@@ -9,6 +9,6 @@ Register: Register a new user to the system.
 Login: Secure user login for authorized access.
 Logout: End the user session.
 
-Technology Used: Python, Django, HTML and CSS.
+Technology Used: Python, Django, HTML, CSS and MySQL.
 
 This project demonstrates basic functionality for managing products and user authentication in a web application.
